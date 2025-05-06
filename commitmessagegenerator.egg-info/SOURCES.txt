@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+commitmessagegenerator/__init__.py
+commitmessagegenerator/cli.py
+commitmessagegenerator/generator.py
+commitmessagegenerator.egg-info/PKG-INFO
+commitmessagegenerator.egg-info/SOURCES.txt
+commitmessagegenerator.egg-info/dependency_links.txt
+commitmessagegenerator.egg-info/entry_points.txt
+commitmessagegenerator.egg-info/requires.txt
+commitmessagegenerator.egg-info/top_level.txt

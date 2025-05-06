@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "commitmessagegenerator"
+version = "0.1.1"
+description = "Gera mensagens de commit com IA a partir de git diff usando Gemini"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  {name = "Gabriel Terceiro", email = "gcarolinoterceiro@gmail.com"}
+]
+dependencies = [
+    "google-generativeai",
+    "GitPython",
+    "python-dotenv"
+]
+
+[project.scripts]
+commitgen = "commitgen.cli:main"
