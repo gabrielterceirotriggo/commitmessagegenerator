@@ -18,6 +18,8 @@ pip install commitmessagegenerator
 
 ## ⚙️ Configuração
 
+## IMPORTANTE - ANTES DE CRIAR ESTE ARQUIVO ADICIONE '.env' NO SEU .gitignore PARA SUA CHAVE NÃO FICAR EXPOSTA
+
 Crie um arquivo `.env` no diretório onde você executará o `commitgen` (geralmente a raiz do seu projeto Git):
 
 ```
@@ -41,19 +43,16 @@ O comando irá:
 ## 🧩 Requisitos
 
 - Python 3.8 ou superior
-- API Key do Gemini (Google Generative AI)
+- API Key do Gemini (Google Generative AI, gratuito em: https://aistudio.google.com/app/apikey)
 - Repositório Git iniciado
-- Dependências Python:
+- Dependências Python (Instaladas automáticamente com o pacote):
   - `GitPython`
   - `google-generativeai`
   - `python-dotenv`
 
-Instale tudo com:
-
-```bash
-pip install -r requirements.txt
 ```
 
 ## 📄 Licença
 
 MIT License
+```
