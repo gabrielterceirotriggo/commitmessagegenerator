@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from google import genai
+import google.generativeai as genai
 from git import Repo
 
 def gerar_mensagem_commit():
