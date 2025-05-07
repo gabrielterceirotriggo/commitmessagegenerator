@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: commitmessagegenerator
-Version: 0.1.3
+Version: 0.1.4
 Summary: Gera mensagens de commit com IA a partir de git diff usando Gemini
 Author-email: Gabriel Terceiro <gcarolinoterceiro@gmail.com>
 License: MIT

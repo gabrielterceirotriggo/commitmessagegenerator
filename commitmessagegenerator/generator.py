@@ -10,15 +10,16 @@ def gerar_mensagem_commit():
     if not key:
         raise RuntimeError("A variável GEMINI_API_KEY não está definida.")
 
+    # Configure a chave da API
+    genai.configure(api_key=key)
+
+    # Acesse o modelo diretamente
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
     repo = Repo(os.getcwd())
     diff = repo.git.diff()
 
-    client = genai.Client(api_key=key)
-
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents="Você pode escrever uma mensagem sucinta e técnica com uma breve explicação das mudanças que foram feitas de commit, para o seguinte diff:\n"
-                 + diff +
-                 "não é necessário explicar a mensagem em si, apenas apresenta-la",
+    response = model.generate_content(
+        contents=[{"role": "user", "parts": [f"Você pode escrever uma mensagem sucinta e técnica com uma breve explicação das mudanças que foram feitas de commit, para o seguinte diff:\n{diff}\nnão é necessário explicar a mensagem em si, apenas apresenta-la"]}]
     )
     return response.text
