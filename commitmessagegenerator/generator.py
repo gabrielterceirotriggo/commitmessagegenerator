@@ -8,7 +8,7 @@ def gerar_mensagem_commit():
 
     key = os.getenv("GEMINI_API_KEY")
     if not key:
-        raise RuntimeError("A variável GEMINI_API_KEY não está definida.")
+        raise RuntimeError("The GEMINI_API_KEY variable is not defined.")
 
     # Configure a chave da API
     genai.configure(api_key=key)
@@ -20,6 +20,6 @@ def gerar_mensagem_commit():
     diff = repo.git.diff()
 
     response = model.generate_content(
-        contents=[{"role": "user", "parts": [f"Você pode escrever uma mensagem sucinta e técnica com uma breve explicação das mudanças que foram feitas de commit, para o seguinte diff:\n{diff}\nnão é necessário explicar a mensagem em si, apenas apresenta-la"]}]
+        contents=[{"role": "user", "parts": [f"Can you write a concise and technical message with a brief explanation of the changes made in the commit for the following diff:\n{diff}\nThere is no need to explain the message itself, just present it."]}]
     )
     return response.text
