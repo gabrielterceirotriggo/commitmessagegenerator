@@ -31,7 +31,7 @@ GEMINI_API_KEY=your-gemini-api-key
 With the terminal, inside any Git repository with pending changes, run:
 
 ```bash
-commitgen
+commitgen (-c/-cg)
 ```
 
 The command will:
@@ -50,9 +50,8 @@ The command will:
   - `google-generativeai`
   - `python-dotenv`
 
-```
-
 ## 📄 License
 
+```
 MIT License
 ```
