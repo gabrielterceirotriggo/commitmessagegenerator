@@ -4,26 +4,26 @@ from .generator import gerar_mensagem_commit
 
 def main():
     parser = argparse.ArgumentParser(description="Gerador de mensagens de commit com IA")
-    parser.add_argument("-c", action="store_true", help="Faz o commit com a mensagem gerada")
-    parser.add_argument("-cp", action="store_true", help="Faz o commit e dá push")
+    parser.add_argument("-c", action="store_true", help="Commits with the generated message")
+    parser.add_argument("-cp", action="store_true", help="Commits and pushes with the generated message")
     args = parser.parse_args()
 
     mensagem = gerar_mensagem_commit()
 
-    if "Nenhuma alteração detectada" in mensagem:
+    if "No changes detected" in mensagem:
         print(mensagem)
         return
 
-    print("\nMensagem gerada:\n" + mensagem)
+    print("\nGenerated commit message:\n" + mensagem)
 
     if args.c or args.cp:
-        print("\nExecutando commit...")
+        print("\nCommitting changes...")
         subprocess.run(["git", "commit", "-m", mensagem])
 
     if args.cp:
-        print("\nExecutando push...")
+        print("\nPushing changes...")
         subprocess.run(["git", "push"])
     
     elif not args.c or not args.cp:
-        print("\nRemovendo alterações do staging (git reset)...")
+        print("\nRemoving staged changes (git reset)...")
         subprocess.run(["git", "reset"])
