@@ -19,4 +19,4 @@ def api_key(key):
             lines = outfile.readlines()
             env_in_gitignore = next((line for line in lines if line.strip() == ".env"), None)
             if not env_in_gitignore:
-                outfile.write(".env\n")
+                outfile.write("\n.env")

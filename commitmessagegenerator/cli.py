@@ -2,6 +2,8 @@ import argparse
 import subprocess
 from .generator import gerar_mensagem_commit
 from .configure import api_key
+import sys
+import getpass
 
 def main():
     parser = argparse.ArgumentParser(description="Gerador de mensagens de commit com IA")
@@ -28,11 +30,11 @@ def main():
         subprocess.run(["git", "push"])
     
     if args.configure:
-        print("\nPlease input your API KEY\nThis is directly set in the .env file\n")
-        key = input()
+        print("\nPlease input your API KEY\nThis is directly set in the .env file")
+        key = getpass.getpass()
         api_key(key)
         print("\nAPI KEY saved in .env file\n")
     
-    if not args.commit or not args.commitpush:
+    if len(sys.argv) == 1:
         print("\nRemoving staged changes (git reset)...")
         subprocess.run(["git", "reset"])

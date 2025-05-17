@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: commitmessagegenerator
-Version: 1.2.2
+Version: 1.2.5
 Summary: Generate commit messages with AI (Google Gemini) automatically using `git diff`.
 Author-email: Gabriel Terceiro <gcarolinoterceiro@gmail.com>
 License: MIT
