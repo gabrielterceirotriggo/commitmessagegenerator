@@ -3,6 +3,7 @@ README.md
 pyproject.toml
 commitmessagegenerator/__init__.py
 commitmessagegenerator/cli.py
+commitmessagegenerator/configure.py
 commitmessagegenerator/generator.py
 commitmessagegenerator.egg-info/PKG-INFO
 commitmessagegenerator.egg-info/SOURCES.txt

@@ -1,29 +1,38 @@
 import argparse
 import subprocess
 from .generator import gerar_mensagem_commit
+from .configure import api_key
 
 def main():
     parser = argparse.ArgumentParser(description="Gerador de mensagens de commit com IA")
-    parser.add_argument("-c", action="store_true", help="Commits with the generated message")
-    parser.add_argument("-cp", action="store_true", help="Commits and pushes with the generated message")
+    parser.add_argument("-c", "--commit", action="store_true", help="Commits with the generated message")
+    parser.add_argument("-cp", "--commitpush",  action="store_true", help="Commits and pushes with the generated message")
+    parser.add_argument("-cf", "--configure", action="store_true", help="Configures the GEMINI_API_KEY environment variable")
     args = parser.parse_args()
 
-    mensagem = gerar_mensagem_commit()
+    if not args.configure:
+        mensagem = gerar_mensagem_commit()
 
-    if "No changes detected" in mensagem:
-        print(mensagem)
-        return
+        if "No changes detected" in mensagem:
+            print(mensagem)
+            return
 
-    print("\nGenerated commit message:\n" + mensagem)
+        print("\nGenerated commit message:\n" + mensagem)
 
-    if args.c or args.cp:
+    if args.commit or args.commitpush:
         print("\nCommitting changes...")
         subprocess.run(["git", "commit", "-m", mensagem])
 
-    if args.cp:
+    if args.commitpush:
         print("\nPushing changes...")
         subprocess.run(["git", "push"])
     
-    elif not args.c or not args.cp:
+    if args.configure:
+        print("\nPlease input your API KEY\nThis is directly set in the .env file\n")
+        key = input()
+        api_key(key)
+        print("\nAPI KEY saved in .env file\n")
+    
+    if not args.commit or not args.commitpush:
         print("\nRemoving staged changes (git reset)...")
         subprocess.run(["git", "reset"])
