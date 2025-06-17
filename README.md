@@ -31,7 +31,7 @@ GEMINI_API_KEY=your-gemini-api-key
 With the terminal, inside any Git repository with pending changes, run:
 
 ```bash
-commitgen (-c/-cg)
+commitgen (-c/-cp)
 ```
 
 The command will:
