@@ -18,6 +18,14 @@ pip install commitmessagegenerator
 
 ## ⚙️ Configuring
 
+```bash
+commitgen -cf
+```
+
+## Run this and type you API key to the terminal so the package creates the .env file and automatically adds it to the .gitignore
+
+Or do it manually:
+
 ## IMPORTANT - BEFORE CREATING THIS FILE ADD '.venv' TO YOUR .gitignore SO YOUR API KEY ISN'T EXPOSED
 
 Create a `.env` file in the directory where you will run commitgen (usually the root of your Git project):
@@ -31,7 +39,7 @@ GEMINI_API_KEY=your-gemini-api-key
 With the terminal, inside any Git repository with pending changes, run:
 
 ```bash
-commitgen (-c/-cg)
+commitgen (-c/-cp)
 ```
 
 The command will:

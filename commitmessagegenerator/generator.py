@@ -36,6 +36,7 @@ def gerar_mensagem_commit():
     )
 
     response = model.generate_content(
+        model="gemini-2.0-flash",
         contents=[{"role": "user", "parts": [prompt]}]
     )
     return response.text.strip()
