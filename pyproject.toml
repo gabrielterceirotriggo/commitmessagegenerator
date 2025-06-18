@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "commitmessagegenerator"
-version = "1.3.1"
+version = "1.5.0"
 description = "Generate commit messages with AI (Google Gemini) automatically using `git diff`."
 readme = "README.md"
 license = {text = "MIT"}
@@ -12,9 +12,9 @@ authors = [
   {name = "Gabriel Terceiro", email = "gcarolinoterceiro@gmail.com"}
 ]
 dependencies = [
-    "google-generativeai",
-    "GitPython",
-    "python-dotenv"
+    "google-genai==1.20.0",
+    "GitPython==3.1.44",
+    "python-dotenv==1.1.0"
 ]
 
 [project.scripts]

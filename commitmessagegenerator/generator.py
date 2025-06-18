@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
 from git import Repo
 
 def gerar_mensagem_commit():
@@ -9,8 +9,11 @@ def gerar_mensagem_commit():
     if not key:
         raise RuntimeError("The GEMINI_API_KEY environment variable is not set.")
 
-    genai.configure(api_key=key)
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    #genai.configure(api_key=key)
+    #model = genai.GenerativeModel("gemini-2.0-flash")
+
+    client = genai.Client(api_key=key)
+    
 
     repo = Repo(os.getcwd())
 
@@ -35,8 +38,8 @@ def gerar_mensagem_commit():
         '''
     )
 
-    response = model.generate_content(
+    response = client.models.generate_content(
         model="gemini-2.0-flash",
-        contents=[{"role": "user", "parts": [prompt]}]
+        contents=prompt
     )
     return response.text.strip()
